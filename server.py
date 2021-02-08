@@ -2,7 +2,7 @@
 
 import logging
 import os
-from decouple import config
+# from decouple import config
 import aiohttp
 from aiogram import Bot, Dispatcher, executor, types
 
@@ -10,17 +10,18 @@ import exceptions
 import expenses
 from categories import Categories
 from middlewares import AccessMiddleware
-
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 logging.basicConfig(level=logging.INFO)
 
-API_TOKEN = config("API_TOKEN")
+API_TOKEN = os.getenv("API_TOKEN")
 # PROXY_URL = os.getenv("TELEGRAM_PROXY_URL")
 # PROXY_AUTH = aiohttp.BasicAuth(
 #     login=os.getenv("TELEGRAM_PROXY_LOGIN"),
 #     password=os.getenv("TELEGRAM_PROXY_PASSWORD")
 # )
-ACCESS_ID = config("TELEGRAM_ACCESS_ID")
+ACCESS_ID = os.getenv("TELEGRAM_ACCESS_ID")
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
