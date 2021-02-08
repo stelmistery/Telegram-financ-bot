@@ -5,6 +5,8 @@ import os
 # from decouple import config
 import aiohttp
 from aiogram import Bot, Dispatcher, executor, types
+from dotenv import find_dotenv, dotenv_values, load_dotenv
+load_dotenv(find_dotenv())
 
 import exceptions
 import expenses
